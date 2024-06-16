@@ -1,0 +1,25 @@
+/* main.css */
+
+/* Стили для контейнера изображений */
+.image-container {
+    position: relative;
+    background-color: #f8f9fa; /* Фон для контейнера */
+    margin-bottom: 20px; /* Отступ между блоками */
+    text-align: center; /* Центрирование содержимого по горизонтали */
+}
+
+/* Стили для изображений */
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Стили для текста и кнопок под изображением */
+.image-container .content {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для лучшей читаемости текста */
+    color: white;
+    text-align: center; /* Центрирование текста */
+}
+
