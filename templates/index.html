@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Список растений</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Название растения</th>
+                <th scope="col">Опасность</th>
+                <th scope="col">Первая помощь</th>
+                <th scope="col">Ореол</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in articles %}
+            <tr class="clickable-row" data-href="/about/{{ el.id }}">
+                <td><span>{{ el.name }}</span></td>
+                <td><span>{{ el.danger }}</span></td>
+                <td><span>{{ el.first_aid }}</span></td>
+                <td><span>{{ el.oreol }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var rows = document.querySelectorAll('.clickable-row');
+    rows.forEach(function(row) {
+        row.addEventListener('click', function(event) {
+            if (event.target.tagName.toLowerCase() !== 'span') {
+                window.location.href = row.getAttribute('data-href');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

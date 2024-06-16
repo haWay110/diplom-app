@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>{{ article.name }}</h1>
+
+    <div class="alert alert-info">
+        {% if article.sinonim %}
+        <h3>Синоним</h3>
+        <p>{{ article.sinonim }}</p>
+        {% endif %}
+        <h3>Ореол</h3>
+        <p>{{ article.oreol }}</p>
+        <h2>Описание</h2>
+        <p>{{ article.discription }}</p>
+        <h3>Симптомы</h3>
+        <p>{{ article.simptoms }}</p>
+        <h3>Опасно</h3>
+        <p>{{ article.danger }}</p>
+        <h3>Первая помощь</h3>
+        <p>{{ article.first_aid }}</p>
+        <h3>Рекомендации</h3>
+        <p>{{ article.dangers_heal }}</p>
+        <p><b>Дата добавления : {{ article.date.date() }}</b></p>
+        <a href="/about/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
+        <a href="/about/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
+    </div>
+</div>
+{% endblock %}

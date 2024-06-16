@@ -1,0 +1,31 @@
+<!-- post_update.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}
+Редактирование растения
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Редактирование растения</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Введите название растения" value="{{ article.name }}"><br>
+        <textarea name="sinonim" id="sinonim" class="form-control" placeholder="Введите синоним растения (необязательно)">{{ article.sinonim }}</textarea><br>
+        <textarea name="oreol" id="oreol" class="form-control" placeholder="Укажите ореол растения">{{ article.oreol }}</textarea><br>
+        <textarea name="simptoms" id="simptoms" class="form-control" placeholder="Опишите симптомы">{{ article.simptoms }}</textarea><br>
+        <textarea name="danger" id="danger" class="form-control" placeholder="Опишите опасность растения">{{ article.danger }}</textarea><br>
+        <textarea name="first_aid" id="first_aid" class="form-control" placeholder="Опишите первую помощь">{{ article.first_aid }}</textarea><br>
+        <textarea name="dangers_heal" id="dangers_heal" class="form-control" placeholder="Опишите последствия отравления">{{ article.dangers_heal }}</textarea><br>
+        <textarea name="discription" id="discription" class="form-control" placeholder="Заполните описание растения">{{ article.discription }}</textarea><br>
+        <p>Загрузите фото растения</p>
+        <input type="file" name="photo" id="photo" class="form-control"><br>
+        {% if article.photo %}
+        <div class="mt-3">
+            <img src="{{ url_for('static', filename=article.photo) }}" alt="{{ article.name }}" class="img-fluid">
+        </div>
+        {% endif %}
+        <input type="submit" class="btn btn-success" value="Сохранить">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Галерея
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все растения</h1>
+
+    {% if articles|length > 0 %}
+        {% for el in articles %}
+        <div class="alert alert-info image-container">
+            {% if el.photo %}
+            <img src="{{ url_for('static', filename=el.photo) }}" alt="{{ el.name }}">
+            {% endif %}
+            <div class="content">
+                <h2>{{ el.name }}</h2>
+                <p>{{ el.intro }}</p>
+                <p><b>Дата добавления: {{ el.date.date() }}</b></p>
+                <a href="/about/{{ el.id }}" class="btn btn-warning">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>Еще нет статей</p>
+    {% endif %}
+</div>
+{% endblock %}

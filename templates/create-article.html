@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создание растения
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Добавление растения</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Введите название растения"><br>
+        <textarea name="sinonim" id="sinonim" class="form-control" placeholder="Введите синоним растения (необязательно)"></textarea><br>
+        <textarea name="oreol" id="oreol" class="form-control" placeholder="Укажите ореол растения"></textarea><br>
+        <textarea name="simptoms" id="simptoms" class="form-control" placeholder="Опишите симптомы"></textarea><br>
+        <textarea name="danger" id="danger" class="form-control" placeholder="Опишите опасность растения"></textarea><br>
+        <textarea name="first_aid" id="first_aid" class="form-control" placeholder="Опишите первую помощь"></textarea><br>
+        <textarea name="dangers_heal" id="dangers_heal" class="form-control" placeholder="Опишите последствия отравления"></textarea><br>
+        <textarea name="discription" id="discription" class="form-control" placeholder="Заполните описание растения"></textarea><br>
+        <p>Загрузите фото растения</p>
+        <input type="file" name="photo" id="photo" class="form-control"><br>
+        <input type="submit" id="btn btn-success" class="btn btn-success" value="Отправить">
+    </form>
+</div>
+
+
+{% endblock %}
